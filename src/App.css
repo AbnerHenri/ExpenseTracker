@@ -1,0 +1,23 @@
+.Header {
+    width: 100%;
+    height: 130px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: #DDD;
+}
+
+
+.Body {
+    background-color: #CCC;
+
+    width: 80%;
+    height: 100vh;
+
+    margin: auto;
+
+    display: flex;
+    flex-direction: column;
+}
