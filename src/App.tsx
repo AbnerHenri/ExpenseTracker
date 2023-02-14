@@ -1,13 +1,15 @@
 import { useState, useEffect } from 'react';
 import './App.css';
 
-import { CategoryType } from './Types/CategoryType';
+// import { CategoryType } from './Types/CategoryType';
 import { ItemsType } from './Types/ItemType';
 
-import { CategoryData } from './Data/CategoryData';
+// import { CategoryData } from './Data/CategoryData';
 import { ItemsData } from './Data/ItemsData';
 
-import { getCurrentMonth } from './Helpers/DateFilter';
+import { getCurrentMonth, filterListByMonth } from './Helpers/DateFilter';
+
+import ComponentItem from './Components/Item/Item';
 
 
 function App() {
@@ -17,8 +19,8 @@ function App() {
   const [currentMonth, setCurrentMonth] = useState(getCurrentMonth())
 
   useEffect(()=>{
-
-  }, [list, filtredList])
+    setFiltredList( filterListByMonth(list, currentMonth) )
+  }, [list, currentMonth])
 
   return (
     <>
@@ -27,14 +29,15 @@ function App() {
       </div>
 
       <div className='Body'>
-        <h2>...</h2>
 
           {/* Área de informação  */}
 
           {/* Área de inserção */}
 
           {/* Área de Itens */}
-          
+        
+          <ComponentItem />
+
       </div>
     </>
   );
