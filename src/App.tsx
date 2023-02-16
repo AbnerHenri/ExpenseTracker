@@ -9,7 +9,7 @@ import { ItemsData } from './Data/ItemsData';
 
 import { getCurrentMonth, filterListByMonth } from './Helpers/DateFilter';
 
-import ComponentItem from './Components/Item/Item';
+import Table from './Components/Item/Table';
 
 
 function App() {
@@ -36,7 +36,7 @@ function App() {
 
           {/* Área de Itens */}
         
-          <ComponentItem />
+          <Table list={list}/>
 
       </div>
     </>
