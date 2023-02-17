@@ -22,6 +22,8 @@ function App() {
     setFiltredList( filterListByMonth(list, currentMonth) )
   }, [list, currentMonth])
 
+  console.log(filtredList)
+
   return (
     <>
       <div className='Header'>
@@ -36,7 +38,7 @@ function App() {
 
           {/* Área de Itens */}
         
-          <Table list={list}/>
+          <Table list={filtredList}/>
 
       </div>
     </>

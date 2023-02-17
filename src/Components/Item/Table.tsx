@@ -9,11 +9,11 @@ function Table({ list }: Props) {
   return(
     <table className='Table'>
       <thead>
-        <tr className='TableHead'>
-          <h3>Data</h3>
-          <h3>Categoria</h3>
-          <h3>Título</h3>
-          <h3 className='Value'>Valor</h3>
+        <tr>
+          <th className='HeadColumn' style={{ width : 100 }}>Data</th>
+          <th className='HeadColumn' style={{ width: 130 }}>Categoria</th>
+          <th className='HeadColumn'>Título</th>
+          <th className='HeadColumn' style={{ width: 130 }}>Valor</th>
         </tr>
       </thead>
 
