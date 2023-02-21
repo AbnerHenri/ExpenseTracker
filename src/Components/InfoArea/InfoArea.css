@@ -24,6 +24,8 @@
 
 .ResumeArea {
     flex : 1;
+    display: flex;
+    justify-content: space-evenly;
 }
 
 .Arrow {
@@ -33,5 +35,6 @@
 }
 
 .MonthTitle {
-    color : #DDD
+    color : #DDD;
+    font-family: cursive;
 }

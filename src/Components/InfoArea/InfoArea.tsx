@@ -1,13 +1,17 @@
 import './InfoArea.css'
 
 import { formatCurrentMonth } from '../../Helpers/DateFilter'
+import ResumeItem from '../ResumeItem/ResumeItem'
+import { useEffect } from 'react'
 
-type Month = {
+type Props = {
     currentMonth : String,
-    onMonthChange : (newMonth : String) => void
+    onMonthChange : (newMonth : String) => void,
+    income : number,
+    expense : number,
 }
 
-function InfoArea({currentMonth, onMonthChange }: Month){
+function InfoArea({currentMonth, onMonthChange, income, expense }: Props){
 
     function handlePrevMonth() {
         const [year, month] = currentMonth.split('-')
@@ -32,7 +36,9 @@ function InfoArea({currentMonth, onMonthChange }: Month){
        </div>
 
        <div className='ResumeArea'>
-            
+            <ResumeItem title={'Renda'} value={income} />
+            <ResumeItem title={'Despesas'} value={expense} /> 
+            <ResumeItem title={'Balanço'} value={income - expense}/>
        </div>
     </div>
   );
