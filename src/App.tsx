@@ -34,11 +34,12 @@ function App() {
 
           {/* Área de informação  */}
 
+         <InfoArea onMonthChange={handleDate} currentMonth={currentMonth} />
+
           {/* Área de inserção */}
 
           {/* Área de Itens */}
         
-          <InfoArea onMonthChange={handleDate} currentMonth={currentMonth}/>
           <Table list={filtredList}/>
 
       </div>

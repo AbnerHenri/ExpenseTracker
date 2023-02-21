@@ -54,10 +54,8 @@ export const formatCurrentMonth = (currentMonth : String) => {
         'Setembro',
         'Outubro',
         'Novembro',
-        'Dezembro'
+        'Dezembro',
     ]
 
-    const newMonth = Months.filter((element, index) => (index + 1)  == parseInt(month))
-
-    return `${newMonth} de ${year}`
+    return `${Months[parseInt(month) - 1]} de ${year}`
 }

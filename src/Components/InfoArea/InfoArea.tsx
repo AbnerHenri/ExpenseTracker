@@ -11,16 +11,16 @@ function InfoArea({currentMonth, onMonthChange }: Month){
 
     function handlePrevMonth() {
         const [year, month] = currentMonth.split('-')
-        let currentDate = new Date(parseInt(year), parseInt(month), 1)
+        let currentDate = new Date(parseInt(year), parseInt(month) - 1, 1)
         currentDate.setMonth( currentDate.getMonth() - 1 );
-        onMonthChange(`${currentDate.getFullYear()} - ${currentDate.getMonth()}`)
+        onMonthChange(`${currentDate.getFullYear()} - ${currentDate.getMonth() + 1}`)
     }
 
     function handleNextMonth() {
         const [year, month] = currentMonth.split('-')
-        let currentDate = new Date(parseInt(year), parseInt(month), 1)
+        let currentDate = new Date(parseInt(year), parseInt(month) - 1, 1)
         currentDate.setMonth(currentDate.getMonth() + 1);
-        onMonthChange(`${currentDate.getFullYear()} - ${currentDate.getMonth()}`)
+        onMonthChange(`${currentDate.getFullYear()} - ${currentDate.getMonth() + 1}`)
     }
 
   return(
