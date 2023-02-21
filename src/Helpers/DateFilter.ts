@@ -38,3 +38,26 @@ export const formatDate = (date : Date) : String => {
 
     return Str
 }
+
+export const formatCurrentMonth = (currentMonth : String) => {
+    const [year, month] = currentMonth.split('-')
+
+    const Months = [
+        'Janeiro',
+        'Feveireiro',
+        'Março',
+        'Abril',
+        'Maio',
+        'Junho',
+        'Julho',
+        'Agosto',
+        'Setembro',
+        'Outubro',
+        'Novembro',
+        'Dezembro'
+    ]
+
+    const newMonth = Months.filter((element, index) => (index + 1)  == parseInt(month))
+
+    return `${newMonth} de ${year}`
+}

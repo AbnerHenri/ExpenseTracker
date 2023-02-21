@@ -7,6 +7,17 @@ type Props = {
 }
 
 function Table({ list }: Props) {
+
+  function formatValue(value : Number | String, expense : Boolean) : String  {
+    if(expense == true) {
+      value = `-${value}`
+    }else{
+      value = `${value}`
+    }
+
+    return value
+  }
+
   return(
     <table className='Table'>
       <thead>
@@ -24,7 +35,7 @@ function Table({ list }: Props) {
             <td style={{ fontSize : 14 }}>{formatDate(e.date)}</td>
             <td>{e.category}</td>
             <td>{e.title}</td>
-            <td>R$ {Number(e.value)}</td>
+            <td style={{ color: e.expense == true ? 'red' : '#00FA9A' }}>R$ {Number(formatValue(e.value, e.expense))}</td>
           </tr>
         )}
       </tbody>

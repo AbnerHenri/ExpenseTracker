@@ -1,33 +1,33 @@
 import { useState, useEffect } from 'react';
 import './App.css';
 
-// import { CategoryType } from './Types/CategoryType';
 import { ItemsType } from './Types/ItemType';
-
-// import { CategoryData } from './Data/CategoryData';
 import { ItemsData } from './Data/ItemsData';
 
 import { getCurrentMonth, filterListByMonth } from './Helpers/DateFilter';
 
 import Table from './Components/Item/Table';
+import InfoArea from './Components/InfoArea/InfoArea';
 
 
 function App() {
 
   const [list, setList] = useState(ItemsData)
   const [filtredList, setFiltredList] = useState<ItemsType[]>([])
-  const [currentMonth, setCurrentMonth] = useState(getCurrentMonth())
+  const [currentMonth, setCurrentMonth] = useState<String>(getCurrentMonth())
 
   useEffect(()=>{
     setFiltredList( filterListByMonth(list, currentMonth) )
   }, [list, currentMonth])
 
-  console.log(filtredList)
+  function handleDate(newMonth : String): void {
+    setCurrentMonth(newMonth)
+  }
 
   return (
     <>
       <div className='Header'>
-        <h2>Sistema de Finanças Pessoais</h2>
+        <h3>Sistema de Finanças Pessoais</h3>
       </div>
 
       <div className='Body'>
@@ -38,6 +38,7 @@ function App() {
 
           {/* Área de Itens */}
         
+          <InfoArea onMonthChange={handleDate} currentMonth={currentMonth}/>
           <Table list={filtredList}/>
 
       </div>
