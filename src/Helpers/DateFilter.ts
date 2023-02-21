@@ -22,3 +22,19 @@ export const filterListByMonth = (list : ItemsType[], date : String) : ItemsType
 
     return newList
 }
+
+export const formatDate = (date : Date) : String => {
+    let year = date.getFullYear()
+    let month = date.getMonth()
+    let day = date.getDate()
+
+    let Str = `0${day}/0${month}/${year}`
+
+    if(month > 9){
+        Str = `0${day}/${month}/${year}`
+    }else if (day > 9) {
+        Str =  `${day}/0${month}/${year}`
+    }
+
+    return Str
+}

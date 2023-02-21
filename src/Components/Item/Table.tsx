@@ -1,5 +1,6 @@
 import './Table.css'
 import { ItemsType } from '../../Types/ItemType';
+import { formatDate } from '../../Helpers/DateFilter';
 
 type Props = {
   list : ItemsType[]
@@ -20,10 +21,10 @@ function Table({ list }: Props) {
       <tbody>
         {list.map((e, index)=>
           <tr key={index}>
-            <td></td>
-            <td></td>
+            <td style={{ fontSize : 14 }}>{formatDate(e.date)}</td>
+            <td>{e.category}</td>
             <td>{e.title}</td>
-            <td></td>
+            <td>R$ {Number(e.value)}</td>
           </tr>
         )}
       </tbody>
