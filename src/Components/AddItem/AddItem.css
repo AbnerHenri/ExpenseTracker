@@ -1,0 +1,13 @@
+
+.AddArea {
+    display: flex;
+    align-items: center;
+
+    width: 95%;
+    height : 100px;
+    margin : 15px;
+
+    background-color: var(--item);
+    box-shadow: 3px 3px 3px #171717;
+    border-radius: 20px;
+}

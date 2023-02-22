@@ -35,7 +35,7 @@ function Table({ list }: Props) {
             <td style={{ fontSize : 14 }}>{formatDate(e.date)}</td>
             <td>{e.category}</td>
             <td>{e.title}</td>
-            <td style={{ color: e.expense == true ? 'red' : '#00FA9A' }}>R$ {Number(formatValue(e.value, e.expense))}</td>
+            <td style={{ color: e.expense == true ? '#FF6347' : '#00FA9A' }}>R$ {Number(formatValue(e.value, e.expense))}</td>
           </tr>
         )}
       </tbody>

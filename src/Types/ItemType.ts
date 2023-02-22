@@ -1,7 +1,7 @@
 export type ItemsType = {
     date : Date,
-    category : String,
-    title : String,
-    value : Number,
-    expense : Boolean,
+    category : string,
+    title : string,
+    value : number,
+    expense : boolean,
 }

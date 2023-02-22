@@ -36,9 +36,9 @@ function InfoArea({currentMonth, onMonthChange, income, expense }: Props){
        </div>
 
        <div className='ResumeArea'>
-            <ResumeItem title={'Renda'} value={income} />
-            <ResumeItem title={'Despesas'} value={expense} /> 
-            <ResumeItem title={'Balanço'} value={income - expense}/>
+          <ResumeItem title={'Renda'} value={income} textColor={'#00FA9A'}/>
+          <ResumeItem title={'Despesas'} value={expense} textColor={'#FF6347'}/> 
+          <ResumeItem title={'Balanço'} value={income - expense} textColor={'#836FFF'}/>
        </div>
     </div>
   );
