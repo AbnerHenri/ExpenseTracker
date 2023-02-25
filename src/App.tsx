@@ -68,7 +68,7 @@ function App() {
 
           {/* Área de inserção */}
 
-          <AddItem onAddItem={onAddItem}/>
+          <AddItem onAddItem={onAddItem} List={filtredList}/>
 
           {/* Área de Itens */}
         

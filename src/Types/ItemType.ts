@@ -3,5 +3,5 @@ export type ItemsType = {
     category : string,
     title : string,
     value : number,
-    expense : boolean,
+    expense : Boolean,
 }
