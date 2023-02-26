@@ -1,7 +1,7 @@
-import { ChangeEvent, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import './AddItem.css'
-import { ItemsType } from '../../Types/ItemType';
 
+import { ItemsType } from '../../Types/ItemType';
 
 type Props = {
     onAddItem : (item: ItemsType) => void,
@@ -11,6 +11,7 @@ type Props = {
 function AddItem({onAddItem, List}: Props) {
 
     const [date, setDate] = useState('')
+    const [formatDate, setFormatDate] = useState('')
     const [category, setCategory] = useState('')
     const [title, setTitle] = useState('')
     const [expense, setExpense] = useState<Boolean>(true)
@@ -33,9 +34,19 @@ function AddItem({onAddItem, List}: Props) {
       }
 
       setExpenseType(category)
+      
     }, [category])
 
-    console.log(expense)
+    useEffect(()=>{
+      function formatDateType(Date: string) {
+        let [date, month, year] = Date.split('-')
+
+        setFormatDate(`${date}/${Number(month) + 1}/${year}`)
+      }
+
+      formatDateType(date)
+    }, [date])
+
 
   return(
     <div className='AddArea'>
@@ -54,7 +65,7 @@ function AddItem({onAddItem, List}: Props) {
         <input type='text' placeholder='Valor' value={myValue} onChange={(e) => setMyValue(e.target.value)} />
 
         <button onClick={()=> onAddItem({
-          date : new Date(date),
+          date : new Date(formatDate),
           category : category,
           title : title,
           value : Number(myValue),
