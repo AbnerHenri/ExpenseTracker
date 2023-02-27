@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import './AddItem.css'
 
 import { ItemsType } from '../../Types/ItemType';
+import AddImage from '../../Assets/Plus.png'
 
 type Props = {
     onAddItem : (item: ItemsType) => void,
@@ -50,27 +51,41 @@ function AddItem({onAddItem, List}: Props) {
 
   return(
     <div className='AddArea'>
-        <input type='date' name='date' value={date} onChange={(e)=> setDate(e.target.value)}/>
 
-        <select value={category} onChange={(e)=> setCategory(e.target.value)}>
+      <div className='InputArea'>
+        <label>Data :</label>
+        <input type='date' name='date' value={date} onChange={(e) => setDate(e.target.value)} className='Input' />
+      </div>
+
+      <div className='InputArea'>
+        <label>Tipo :</label>
+        <select value={category} onChange={(e) => setCategory(e.target.value)} className='Input'>
           <option></option>
           <option>Gasto Fixo</option>
           <option>Gasto Variável</option>
           <option>Renda Fixa</option>
           <option>Renda Variável</option>
         </select>
+      </div>
 
+        <div className='InputArea'>
+          <label>Título :</label>
+          <input className='Input' type='text' value={title} onChange={(e) => setTitle(e.target.value)} />
+        </div>
 
-        <input type='text' placeholder='Título' value={title} onChange={(e)=> setTitle(e.target.value)}/>
-        <input type='text' placeholder='Valor' value={myValue} onChange={(e) => setMyValue(e.target.value)} />
+        <div className='InputArea'>
+          <label>Valor :</label>
+          <input className='Input' type='text' value={myValue} onChange={(e) => setMyValue(e.target.value)} />
+        </div>
+        
 
-        <button onClick={()=> onAddItem({
-          date : new Date(formatDate),
-          category : category,
-          title : title,
-          value : Number(myValue),
-          expense : expense
-        })}>Adicionar</button>
+      <img className='AddButton' src={AddImage} onClick={() => onAddItem({
+        date: new Date(formatDate),
+        category: category,
+        title: title,
+        value: Number(myValue),
+        expense: expense
+      })} />
     </div>
   );
 }

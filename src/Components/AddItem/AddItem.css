@@ -2,6 +2,7 @@
 .AddArea {
     display: flex;
     align-items: center;
+    justify-content: space-evenly;
 
     width: 95%;
     height : 100px;
@@ -11,3 +12,30 @@
     box-shadow: 3px 3px 3px #171717;
     border-radius: 20px;
 }
+
+.InputArea {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 15px;
+    color : #DDD;
+    font-family: cursive;
+}
+
+.Input {
+    padding: 8px;
+    border : none;
+    border-bottom: 1px solid #CCC;
+    border-radius: 10px;
+    color : #CCC;
+    background-color: var(--itemTwo);
+}
+
+.AddButton {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}
+
