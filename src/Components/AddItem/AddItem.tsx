@@ -13,7 +13,7 @@ function AddItem({onAddItem, List}: Props) {
 
     const [date, setDate] = useState('')
     const [formatDate, setFormatDate] = useState('')
-    const [category, setCategory] = useState('')
+    const [category, setCategory] = useState('Selecione')
     const [title, setTitle] = useState('')
     const [expense, setExpense] = useState<Boolean>(true)
     const [myValue, setMyValue] = useState('')
@@ -48,6 +48,25 @@ function AddItem({onAddItem, List}: Props) {
       formatDateType(date)
     }, [date])
 
+    function addNewItem(){
+      if(date === ''){
+        alert('Indique uma data')
+      }else if(category === 'Selecione'){
+        alert('Indique uma categoria')
+      }else if(title === ''){
+        alert('Indique um título')
+      }else if(myValue === ''){
+        alert('Indique um valor')
+      }else{
+        onAddItem({
+          date: new Date(formatDate),
+          category: category,
+          title: title,
+          value: Number(myValue),
+          expense: expense
+        })
+      }
+    }
 
   return(
     <div className='AddArea'>
@@ -60,7 +79,7 @@ function AddItem({onAddItem, List}: Props) {
       <div className='InputArea'>
         <label>Tipo :</label>
         <select value={category} onChange={(e) => setCategory(e.target.value)} className='Input'>
-          <option></option>
+          <option>Selecione</option>
           <option>Gasto Fixo</option>
           <option>Gasto Variável</option>
           <option>Renda Fixa</option>
@@ -79,13 +98,7 @@ function AddItem({onAddItem, List}: Props) {
         </div>
         
 
-      <img className='AddButton' src={AddImage} onClick={() => onAddItem({
-        date: new Date(formatDate),
-        category: category,
-        title: title,
-        value: Number(myValue),
-        expense: expense
-      })} />
+      <img className='AddButton' src={AddImage} onClick={()=> addNewItem()}/>
     </div>
   );
 }
